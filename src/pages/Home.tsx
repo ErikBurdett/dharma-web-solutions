@@ -3,6 +3,20 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Code2, Layers, Plug, Cloud, ShoppingCart, CheckCircle } from 'lucide-react';
 import { companyInfo, services, projects, technologies } from '../data/companyData';
 
+// Network node positions for the animated background
+const networkNodes = [
+  { x: 10, y: 20 }, { x: 25, y: 15 }, { x: 40, y: 30 }, { x: 55, y: 10 },
+  { x: 70, y: 25 }, { x: 85, y: 18 }, { x: 15, y: 45 }, { x: 30, y: 55 },
+  { x: 50, y: 50 }, { x: 65, y: 40 }, { x: 80, y: 55 }, { x: 20, y: 75 },
+  { x: 35, y: 85 }, { x: 55, y: 70 }, { x: 75, y: 80 }, { x: 90, y: 70 },
+];
+
+const networkLines = [
+  [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [0, 6], [1, 6], [2, 8],
+  [6, 7], [7, 8], [8, 9], [9, 10], [4, 9], [5, 10], [6, 11], [7, 11],
+  [7, 12], [8, 13], [9, 14], [10, 15], [11, 12], [12, 13], [13, 14], [14, 15],
+];
+
 const Home = () => {
   const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
 
@@ -10,13 +24,97 @@ const Home = () => {
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
+        {/* Background gradient - matching portfolio style */}
         <div className="absolute inset-0 bg-gradient-to-br from-surface-300 via-surface-200 to-dharma-900/20" />
         
-        {/* Animated background elements */}
+        {/* Animated network lines background */}
         <div className="absolute inset-0 overflow-hidden">
+          <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(255, 255, 255, 0.1)" />
+                <stop offset="50%" stopColor="rgba(100, 181, 246, 0.3)" />
+                <stop offset="100%" stopColor="rgba(255, 255, 255, 0.1)" />
+              </linearGradient>
+            </defs>
+            {/* Network lines */}
+            {networkLines.map(([from, to], index) => (
+              <motion.line
+                key={`line-${index}`}
+                x1={`${networkNodes[from].x}%`}
+                y1={`${networkNodes[from].y}%`}
+                x2={`${networkNodes[to].x}%`}
+                y2={`${networkNodes[to].y}%`}
+                stroke="url(#lineGradient)"
+                strokeWidth="1"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ 
+                  pathLength: [0, 1, 1],
+                  opacity: [0, 0.6, 0.2],
+                }}
+                transition={{ 
+                  duration: 3 + (index % 3),
+                  repeat: Infinity,
+                  delay: index * 0.15,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+            {/* Glowing pulse along lines */}
+            {networkLines.slice(0, 8).map(([from, to], index) => (
+              <motion.circle
+                key={`pulse-${index}`}
+                r="3"
+                fill="rgba(100, 181, 246, 0.8)"
+                filter="blur(2px)"
+                initial={{ 
+                  cx: `${networkNodes[from].x}%`,
+                  cy: `${networkNodes[from].y}%`,
+                  opacity: 0
+                }}
+                animate={{ 
+                  cx: [`${networkNodes[from].x}%`, `${networkNodes[to].x}%`],
+                  cy: [`${networkNodes[from].y}%`, `${networkNodes[to].y}%`],
+                  opacity: [0, 1, 0],
+                }}
+                transition={{ 
+                  duration: 2 + (index % 2),
+                  repeat: Infinity,
+                  delay: index * 0.5,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+          </svg>
+          
+          {/* Network nodes */}
+          {networkNodes.map((node, index) => (
+            <motion.div
+              key={`node-${index}`}
+              className="absolute w-2 h-2 rounded-full bg-white/30"
+              style={{ left: `${node.x}%`, top: `${node.y}%` }}
+              animate={{ 
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.8, 0.3],
+                boxShadow: [
+                  '0 0 5px rgba(255, 255, 255, 0.3)',
+                  '0 0 15px rgba(100, 181, 246, 0.6)',
+                  '0 0 5px rgba(255, 255, 255, 0.3)'
+                ]
+              }}
+              transition={{ 
+                duration: 2 + (index % 3),
+                repeat: Infinity,
+                delay: index * 0.2
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Ambient glow orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div 
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-dharma-500/5 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-dharma-500/8 rounded-full blur-3xl"
             animate={{ 
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3]
@@ -24,12 +122,20 @@ const Home = () => {
             transition={{ duration: 8, repeat: Infinity }}
           />
           <motion.div 
-            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-dharma-400/5 rounded-full blur-3xl"
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-dharma-400/8 rounded-full blur-3xl"
             animate={{ 
               scale: [1.2, 1, 1.2],
               opacity: [0.5, 0.3, 0.5]
             }}
             transition={{ duration: 10, repeat: Infinity, delay: 1 }}
+          />
+          <motion.div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3]
+            }}
+            transition={{ duration: 12, repeat: Infinity, delay: 2 }}
           />
         </div>
 
