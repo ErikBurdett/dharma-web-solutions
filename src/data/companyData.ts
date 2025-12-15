@@ -106,8 +106,8 @@ export const projects = [
   {
     id: 3,
     title: "Saint Francis Ministries",
-    client: "Saint Francis De Sales School for The Deaf",
-    description: "Volunteer and donation portal for a school for the deaf in Nyapea, Uganda. The platform increased donations by over $20,000 in 2017 and $45,000 in 2022.",
+    client: "Saint Francis Ministries",
+    description: "Volunteer and donation portal for a non-profit organization. The platform significantly increased donations and streamlined volunteer coordination.",
     technologies: ["WordPress", "JavaScript", "PHP", "Custom Themes", "Donation Integration"],
     category: "Non-Profit",
     featured: true
@@ -121,34 +121,6 @@ export const projects = [
     category: "Real Estate",
     featured: false
   },
-  {
-    id: 5,
-    title: "Family Promise Service Tracker",
-    client: "Family Promise",
-    description: "Full stack React/Node application to track and visualize services provided to families. Interactive, mobile-friendly map with cost metrics and case notes.",
-    technologies: ["React", "Node.js", "Express", "PostgreSQL", "Data Visualization"],
-    category: "Non-Profit",
-    github: "https://github.com/Lambda-School-Labs/family-promise-service-tracker-be-a",
-    featured: true
-  },
-  {
-    id: 6,
-    title: "KTBlack Services Platform",
-    client: "KTBlack Services",
-    description: "Enterprise platform replacing legacy Salesforce solution. Built with React, TypeScript, and Node.js with real-time messaging via WebSockets.",
-    technologies: ["React", "TypeScript", "MUI", "Node.js", "AWS EC2", "WebSockets", "Salesforce"],
-    category: "Enterprise",
-    featured: true
-  },
-  {
-    id: 7,
-    title: "Andrews & Associates Phoenix Project",
-    client: "Andrews & Associates L.T. Solutions",
-    description: "Modern full stack architecture to replace legacy WordPress ecosystem. Managed 127+ client websites while building scalable React, Node, and Python services.",
-    technologies: ["React", "Node.js", "Python", "WordPress", "AWS", "Azure", "GitHub Actions", "CI/CD"],
-    category: "Enterprise",
-    featured: true
-  }
 ];
 
 export const testimonials = [
@@ -160,7 +132,7 @@ export const testimonials = [
   },
   {
     id: 2,
-    quote: "The donation portal they created helped us raise over $45,000 for our school in Uganda. Incredible work with a mission-driven approach.",
+    quote: "The donation portal they created significantly increased our fundraising. Incredible work with a mission-driven approach.",
     author: "Rannah Evetts",
     company: "Saint Francis Ministries"
   }
@@ -174,4 +146,5 @@ export const technologies = {
   database: ["PostgreSQL", "MySQL", "SQL Server", "MongoDB"],
   apis: ["Stripe", "PayPal", "Square", "Toast POS", "Printful", "Google APIs"]
 };
+
 

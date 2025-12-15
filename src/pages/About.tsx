@@ -48,8 +48,8 @@ const About = () => {
                 crafting solutions that truly serve your mission.
               </p>
               <p>
-                From managing 127+ client websites to building donation platforms that raised over $65,000 
-                for schools in Uganda, we approach every project with the same dedication and care.
+                From managing multiple client websites to building donation platforms that significantly 
+                increased profits for non-profits, we approach every project with the same dedication and care.
               </p>
             </div>
 
@@ -178,4 +178,5 @@ const About = () => {
 };
 
 export default About;
+
 
