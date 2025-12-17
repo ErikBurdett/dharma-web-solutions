@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Code2, Layers, Plug, Cloud, ShoppingCart, RefreshCw, ArrowRight, CheckCircle } from 'lucide-react';
+import { Code2, Layers, Plug, Cloud, ShoppingCart, RefreshCw, ArrowRight, CheckCircle, DollarSign, MessageCircle, Clock } from 'lucide-react';
 import { services } from '../data/companyData';
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -68,6 +68,118 @@ const Services = () => {
           ))}
         </div>
 
+        {/* Pricing Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <div className="text-center mb-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 mb-6"
+            >
+              <DollarSign className="w-4 h-4 text-emerald-400" />
+              <span className="text-emerald-400 text-sm font-mono">Transparent Pricing</span>
+            </motion.div>
+            <h2 className="text-2xl font-display font-semibold text-white mb-4">Consultancy Rates</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Straightforward pricing with no hidden fees. Let's start with a free conversation.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Free Consultation */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="card card-hover relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-emerald-400" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+                  <MessageCircle className="w-7 h-7 text-emerald-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-display font-semibold text-white">Initial Consultation</h3>
+                  <p className="text-emerald-400 text-sm font-mono">Exploration & Discovery</p>
+                </div>
+              </div>
+              <div className="mb-6">
+                <span className="text-4xl font-display font-bold text-white">Free</span>
+              </div>
+              <ul className="space-y-3 text-gray-400 text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  Discuss your project vision and goals
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  Explore technical requirements
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  Assess project scope and timeline
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  No commitment required
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Hourly Rate */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="card card-hover relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-dharma-500 to-dharma-400" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-dharma-500/10 border border-dharma-500/30 flex items-center justify-center">
+                  <Clock className="w-7 h-7 text-dharma-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-display font-semibold text-white">Project Work</h3>
+                  <p className="text-dharma-400 text-sm font-mono">Development & Consulting</p>
+                </div>
+              </div>
+              <div className="mb-6">
+                <span className="text-4xl font-display font-bold text-white">$45</span>
+                <span className="text-gray-400 text-lg"> – </span>
+                <span className="text-4xl font-display font-bold text-white">$65</span>
+                <span className="text-gray-400 text-lg">/hour</span>
+              </div>
+              <p className="text-gray-400 text-sm mb-4">
+                Based on project complexity and scope
+              </p>
+              <ul className="space-y-3 text-gray-400 text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-dharma-400 flex-shrink-0" />
+                  Custom web application development
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-dharma-400 flex-shrink-0" />
+                  Technical consulting & architecture
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-dharma-400 flex-shrink-0" />
+                  API integrations & maintenance
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-dharma-400 flex-shrink-0" />
+                  Flexible engagement terms
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </motion.section>
+
         {/* Process Section */}
         <motion.section
           initial={{ opacity: 0, y: 30 }}
@@ -129,5 +241,6 @@ const Services = () => {
 };
 
 export default Services;
+
 
 

@@ -13,7 +13,7 @@ interface ContactFormData {
 }
 
 // Web3Forms access key
-const WEB3FORMS_ACCESS_KEY = 'b6365156-5c3c-48fe-8e4a-5d37ccb466e4';
+const WEB3FORMS_ACCESS_KEY = 'db76498c-b66d-42f2-bd92-1f5c9dc3a30b';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -97,10 +97,18 @@ const Contact = () => {
               <h2 className="text-xl font-display font-semibold text-white mb-6">
                 Let's Start a Conversation
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-8">
+              <p className="text-gray-400 leading-relaxed mb-4">
                 Whether you need a custom web application, WordPress solution, or API integration, 
                 we're here to help. Reach out and let's discuss your project.
               </p>
+              <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 mb-8">
+                <p className="text-emerald-400 text-sm font-medium mb-1">
+                  ✓ Initial consultation is free
+                </p>
+                <p className="text-gray-400 text-sm">
+                  Project work: $45–$65/hour based on complexity
+                </p>
+              </div>
             </div>
 
             {/* Contact Details */}
@@ -324,5 +332,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
 
