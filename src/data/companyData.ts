@@ -123,21 +123,6 @@ export const projects = [
   },
 ];
 
-export const testimonials = [
-  {
-    id: 1,
-    quote: "Dharma Web Solutions transformed our online presence. The custom platform they built has streamlined our operations significantly.",
-    author: "Local Business Owner",
-    company: "EightyTwenty"
-  },
-  {
-    id: 2,
-    quote: "The donation portal they created significantly increased our fundraising. Incredible work with a mission-driven approach.",
-    author: "Rannah Evetts",
-    company: "Saint Francis Ministries"
-  }
-];
-
 export const technologies = {
   frontend: ["React", "Next.js", "TypeScript", "JavaScript", "Vite", "Tailwind CSS", "MUI"],
   backend: ["Node.js", "Express", "Python", "Flask", "PHP", "GraphQL", "REST APIs"],
@@ -146,5 +131,8 @@ export const technologies = {
   database: ["PostgreSQL", "MySQL", "SQL Server", "MongoDB"],
   apis: ["Stripe", "PayPal", "Square", "Toast POS", "Printful", "Google APIs"]
 };
+
+
+
 
 
